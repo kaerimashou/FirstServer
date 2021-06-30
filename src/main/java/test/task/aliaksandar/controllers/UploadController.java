@@ -27,9 +27,7 @@ public class UploadController {
     }
 
     @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile multipartFile,
-                                   RedirectAttributes redirectAttributes,
-                                   Model model) throws Exception {
+    public String handleFileUpload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
         appService.setFile(multipartFile);
         return "redirect:/upload/";
     }

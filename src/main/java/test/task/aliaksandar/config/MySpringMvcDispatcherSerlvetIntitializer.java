@@ -21,15 +21,15 @@ public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotation
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
-    
+
     @Override
-    public void onStartup(ServletContext aServletContext) throws ServletException{
+    public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);
         registerHiddenFilter(aServletContext);
     }
 
     private void registerHiddenFilter(ServletContext aServletContext) {
         aServletContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null,true,"/*");
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }

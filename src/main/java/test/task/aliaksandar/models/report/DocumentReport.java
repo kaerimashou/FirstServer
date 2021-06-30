@@ -6,23 +6,23 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 
-@XmlType(name="Doc")
+@XmlType(name = "Doc")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DocumentReport {
 
-    @XmlElement(name="DocNum")
+    @XmlElement(name = "DocNum")
     private Long docNum;
 
-    @XmlElement(name="DocDate")
+    @XmlElement(name = "DocDate")
     private Date date;
 
-    @XmlElement(name="DocGUID")
+    @XmlElement(name = "DocGUID")
     private String guid;
 
-    @XmlElement(name="OperType")
+    @XmlElement(name = "OperType")
     private Integer operType;
 
-    @XmlElement(name="AmountOut")
+    @XmlElement(name = "AmountOut")
     private Double amountOut;
 
     public Long getDocNum() {

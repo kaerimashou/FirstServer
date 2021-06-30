@@ -8,13 +8,13 @@ import java.math.BigInteger;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BankInfo {
 
-    @XmlElement(name="BS_PAY")
+    @XmlElement(name = "BS_PAY")
     private BigInteger BAcc;
 
-    @XmlElement(name="BIC_PAY")
+    @XmlElement(name = "BIC_PAY")
     private Long bic;
 
-    @XmlElement(name="BS_KS_PAY")
+    @XmlElement(name = "BS_KS_PAY")
     private BigInteger TAcc;
 
     public BigInteger getBAcc() {

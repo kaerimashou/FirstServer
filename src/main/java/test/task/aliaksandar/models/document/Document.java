@@ -29,7 +29,7 @@ public class Document {
 
     private final String purpose;
 
-    public Document(DocumentReport report, DocumentPayDocs payDocs){
+    public Document(DocumentReport report, DocumentPayDocs payDocs) {
         docNum = report.getDocNum();
         docDate = report.getDate();
         docGUID = report.getGuid();
@@ -38,8 +38,8 @@ public class Document {
         payerInfo = payDocs.getPayerInfo();
         bankPayerInfo = payDocs.getPayerBankInfo();
         receiverInfo = payDocs.getReceiverInfo();
-        bankReceiverInfo=payDocs.getReceiverBankInfo();
-        purpose=payDocs.getPurpose();
+        bankReceiverInfo = payDocs.getReceiverBankInfo();
+        purpose = payDocs.getPurpose();
     }
 
     public Document(DocumentPayDocs payDocs, DocumentReport report) {
@@ -51,8 +51,8 @@ public class Document {
         payerInfo = payDocs.getPayerInfo();
         bankPayerInfo = payDocs.getPayerBankInfo();
         receiverInfo = payDocs.getReceiverInfo();
-        bankReceiverInfo=payDocs.getReceiverBankInfo();
-        purpose=payDocs.getPurpose();
+        bankReceiverInfo = payDocs.getReceiverBankInfo();
+        purpose = payDocs.getPurpose();
     }
 
     public String getPurpose() {

@@ -1,4 +1,5 @@
 package test.task.aliaksandar.models.pay_docs;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -6,13 +7,13 @@ import javax.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ParticipantInfo {
 
-    @XmlElement(name="INN_PAY")
+    @XmlElement(name = "INN_PAY")
     private Long inn;
 
-    @XmlElement(name="KPP_PAY")
+    @XmlElement(name = "KPP_PAY")
     private Long kpp;
 
-    @XmlElement(name="CName_PAY")
+    @XmlElement(name = "CName_PAY")
     private String name;
 
     public Long getInn() {

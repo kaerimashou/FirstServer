@@ -3,14 +3,16 @@ package test.task.aliaksandar.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import test.task.aliaksandar.models.document.Document;
 import test.task.aliaksandar.service.AppService;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/upload")
+@RequestMapping("/test")
 public class UploadController {
 
     private final AppService appService;
@@ -21,17 +23,17 @@ public class UploadController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/upload")
     public String uploadFile() {
         return "upload/uploadForm";
     }
 
-    @PostMapping("/")
+    @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
-        appService.setFile(multipartFile);
-        return "redirect:/upload/";
+        appService.setList(multipartFile);
+        appService.post();
+        return "redirect:/test/upload/";
     }
-
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleStorageFileNotFound(Exception exc) {

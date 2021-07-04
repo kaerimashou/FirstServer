@@ -94,4 +94,20 @@ public class Document {
     public BankInfo getBankReceiverInfo() {
         return bankReceiverInfo;
     }
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "docNum=" + docNum +
+                ", docDate=" + docDate +
+                ", docGUID='" + docGUID + '\'' +
+                ", operType=" + operType +
+                ", amountOut=" + amountOut +
+                ", payerInfo=" + payerInfo +
+                ", bankPayerInfo=" + bankPayerInfo +
+                ", receiverInfo=" + receiverInfo +
+                ", bankReceiverInfo=" + bankReceiverInfo +
+                ", purpose='" + purpose + '\'' +
+                '}';
+    }
 }

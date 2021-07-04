@@ -12,6 +12,7 @@ import test.task.aliaksandar.service.implementation.AppServiceImpl;
 public class UploadController {
 
     private final AppServiceImpl appServiceImpl;
+//    private final Logger logger = LoggerFactory.getLogger(UploadController.class);
 
     @Autowired
     public UploadController(AppServiceImpl appServiceImpl) {
@@ -27,7 +28,7 @@ public class UploadController {
     @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
         appServiceImpl.post(multipartFile);
-        return "redirect:/test/upload/";
+        return "redirect:/test/upload";
     }
 
     @ExceptionHandler(Exception.class)

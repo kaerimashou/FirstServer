@@ -40,4 +40,12 @@ public class ParticipantInfo {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "ParticipantInfo{" +
+                "inn=" + inn +
+                ", kpp=" + kpp +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -40,5 +40,14 @@ public class BankInfo {
     public void setTAcc(BigInteger TAcc) {
         this.TAcc = TAcc;
     }
+
+    @Override
+    public String toString() {
+        return "BankInfo{" +
+                "BAcc=" + BAcc +
+                ", bic=" + bic +
+                ", TAcc=" + TAcc +
+                '}';
+    }
 }
 

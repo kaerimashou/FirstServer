@@ -14,8 +14,6 @@ import test.task.aliaksandar.service.AppService;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +25,10 @@ public class AppServiceImpl implements AppService {
 
     private final RestTemplate restTemplate;
 
+    public RestTemplate getRestTemplate() {
+        return restTemplate;
+    }
+
     @Value("${second.server.url}")
     private String URL;
 
@@ -37,7 +39,7 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public void post(MultipartFile file) throws Exception {
-        restTemplate.postForLocation(URL,documentList(file));
+        restTemplate.postForLocation(URL, documentList(file));
     }
 
     @Override
@@ -87,7 +89,7 @@ public class AppServiceImpl implements AppService {
     public List<Document> documentList(MultipartFile file) throws Exception {
         DocumentReportList docReportList = getListFromXML(file, DocumentReportList.class);
         DocumentPayDocsList docPayDocsList = getListFromXML(file, DocumentPayDocsList.class);
-        List<Document> docList = new ArrayList<Document>();
+        List<Document> docList = new ArrayList<>();
         if (docReportList == null || docPayDocsList == null) {
             return null;
         } else {

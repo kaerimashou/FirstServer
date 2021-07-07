@@ -1,0 +1,22 @@
+<configuration scan="true" debug="true">
+    <property name="LOG_DIR" value="logs/app.log"/>
+    <appender name="FILE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <totalSizeCap>1GB</totalSizeCap>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="test.task" level="debug" additivity="false">
+        <appender-ref ref="FILE_LOG"/>
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="FILE_LOG" />
+    </root>
+</configuration>

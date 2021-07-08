@@ -1,4 +1,4 @@
-package test.task.aliaksandar.models.report;
+package test.task.aliaksandar.model.report;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

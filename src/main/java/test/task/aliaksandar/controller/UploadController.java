@@ -1,4 +1,4 @@
-package test.task.aliaksandar.controllers;
+package test.task.aliaksandar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +29,7 @@ public class UploadController {
     public String handleFileUpload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
         appServiceImpl.post(multipartFile);
         return "redirect:/test/upload";
+
     }
 
     @ExceptionHandler(Exception.class)

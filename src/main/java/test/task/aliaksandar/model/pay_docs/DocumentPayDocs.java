@@ -1,4 +1,4 @@
-package test.task.aliaksandar.models.pay_docs;
+package test.task.aliaksandar.model.pay_docs;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

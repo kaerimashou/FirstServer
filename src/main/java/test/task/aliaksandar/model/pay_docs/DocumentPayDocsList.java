@@ -1,4 +1,4 @@
-package test.task.aliaksandar.models.pay_docs;
+package test.task.aliaksandar.model.pay_docs;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
@@ -15,6 +15,10 @@ public class DocumentPayDocsList {
     }
 
     public DocumentPayDocs getByGuid(String guid) throws Exception {
-        return documentPayDocsList.stream().filter(i -> i.getGuid().equals(guid)).findFirst().orElseThrow(Exception::new);
+        return documentPayDocsList
+                .stream()
+                .filter(i -> i.getGuid().equals(guid))
+                .findFirst()
+                .orElseThrow(Exception::new);
     }
 }

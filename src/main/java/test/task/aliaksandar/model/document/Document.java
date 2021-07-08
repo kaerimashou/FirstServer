@@ -1,9 +1,9 @@
-package test.task.aliaksandar.models.document;
+package test.task.aliaksandar.model.document;
 
-import test.task.aliaksandar.models.pay_docs.BankInfo;
-import test.task.aliaksandar.models.pay_docs.DocumentPayDocs;
-import test.task.aliaksandar.models.pay_docs.ParticipantInfo;
-import test.task.aliaksandar.models.report.DocumentReport;
+import test.task.aliaksandar.model.pay_docs.BankInfo;
+import test.task.aliaksandar.model.pay_docs.DocumentPayDocs;
+import test.task.aliaksandar.model.pay_docs.ParticipantInfo;
+import test.task.aliaksandar.model.report.DocumentReport;
 
 import java.util.Date;
 
@@ -42,18 +42,6 @@ public class Document {
         purpose = payDocs.getPurpose();
     }
 
-    public Document(DocumentPayDocs payDocs, DocumentReport report) {
-        docNum = report.getDocNum();
-        docDate = report.getDate();
-        docGUID = report.getGuid();
-        operType = report.getOperType();
-        amountOut = report.getAmountOut();
-        payerInfo = payDocs.getPayerInfo();
-        bankPayerInfo = payDocs.getPayerBankInfo();
-        receiverInfo = payDocs.getReceiverInfo();
-        bankReceiverInfo = payDocs.getReceiverBankInfo();
-        purpose = payDocs.getPurpose();
-    }
 
     public String getPurpose() {
         return purpose;

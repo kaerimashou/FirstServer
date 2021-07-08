@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import test.task.aliaksandar.enums.DocTypes;
-import test.task.aliaksandar.models.document.Document;
-import test.task.aliaksandar.models.pay_docs.DocumentPayDocs;
-import test.task.aliaksandar.models.pay_docs.DocumentPayDocsList;
-import test.task.aliaksandar.models.report.DocumentReportList;
+import test.task.aliaksandar.enums.DocType;
+import test.task.aliaksandar.model.document.Document;
+import test.task.aliaksandar.model.pay_docs.DocumentPayDocs;
+import test.task.aliaksandar.model.pay_docs.DocumentPayDocsList;
+import test.task.aliaksandar.model.report.DocumentReportList;
 import test.task.aliaksandar.service.AppService;
 import test.task.aliaksandar.service.DocumentService;
 
@@ -22,7 +22,7 @@ import java.util.Map;
 public class AppServiceImpl implements AppService {
 
     private final RestTemplate restTemplate;
-    private Map<DocTypes, DocumentService> serviceMap = new HashMap<>();
+    private Map<DocType, DocumentService> serviceMap = new HashMap<>();
 
     @Value("${second.server.url}")
     private String URL;
@@ -38,14 +38,14 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
-    public void register(DocTypes type, DocumentService service) {
+    public void register(DocType type, DocumentService service) {
         serviceMap.put(type, service);
     }
 
     @Override
     public List<Document> documentList(MultipartFile file) throws Exception {
-        DocumentReportList docReportList = (DocumentReportList) serviceMap.get(DocTypes.REPORT).parseXML(file);
-        DocumentPayDocsList docPayDocsList = (DocumentPayDocsList) serviceMap.get(DocTypes.PAYDOCS).parseXML(file);
+        DocumentReportList docReportList = (DocumentReportList) serviceMap.get(DocType.REPORT).parseXML(file, DocType.REPORT);
+        DocumentPayDocsList docPayDocsList = (DocumentPayDocsList) serviceMap.get(DocType.PAYDOCS).parseXML(file, DocType.PAYDOCS);
         List<Document> docList = new ArrayList<>();
         if (docReportList == null || docPayDocsList == null) {
             return null;

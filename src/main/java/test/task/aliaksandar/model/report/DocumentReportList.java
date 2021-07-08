@@ -1,4 +1,4 @@
-package test.task.aliaksandar.models.report;
+package test.task.aliaksandar.model.report;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
@@ -15,6 +15,10 @@ public class DocumentReportList {
     }
 
     public DocumentReport getByGuid(String guid) throws Exception {
-        return documentReportList.stream().filter(i -> i.getGuid().equals(guid)).findFirst().orElseThrow(Exception::new);
+        return documentReportList
+                .stream()
+                .filter(i -> i.getGuid().equals(guid))
+                .findFirst()
+                .orElseThrow(Exception::new);
     }
 }
